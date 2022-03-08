@@ -22,13 +22,15 @@ function App() {
   }
   
   function updateDice() {
-    setDice(allNewDice())
+    setDice(oldDice => oldDice.map(die => (
+      die.isHeld ? die : {...die, id: nanoid(), value: Math.ceil(Math.random() * 6)}
+    )))
   }
 
   function holdDice(id) {
     setDice(prevDice => (
       prevDice.map((prevDie => (
-        prevDie.id === id ? {...prevDie, isHeld: !prevDie.isHeld} : {...prevDie}
+        prevDie.id === id ? {...prevDie, isHeld: !prevDie.isHeld} : prevDie
       )))
     ))
   }
