@@ -7,7 +7,13 @@ import Button from './Components/Button'
 function App() {
 
   const [dice, setDice] = React.useState(allNewDice())
-  console.table(dice)
+  
+  const [tenzies, setTenzies] = React.useState(false)
+
+  React.useEffect(() => {
+    const result = dice.every(die => die.value === dice[0].value && die.isHeld)
+    result && setTenzies(true)
+  }, [dice])
 
   function allNewDice() {
     const randomDieNumber = []
@@ -38,8 +44,6 @@ function App() {
   const diceElements = dice.map(die => (
     <Die key={die.id} value={die.value} isHeld={die.isHeld} holdDice={() => holdDice(die.id)}/>
   ))
-
-  console.log("Dice Elements",diceElements)
 
   return (
     <div className="App">
