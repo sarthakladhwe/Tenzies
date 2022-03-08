@@ -1,9 +1,9 @@
 import React from "react";
 
-export default function Button({ rollDice }) {
+export default function Button({ rollDice, won }) {
     return (
         <button className="btn-roll" onClick={rollDice}>
-            Roll
+            { won ? "New Game" : "Roll" }
         </button>
     )
 }

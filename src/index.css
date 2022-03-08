@@ -6,6 +6,7 @@ body {
   margin: 0;
   background-color: #0b2434;
   font-family: "Karla", sans-serif;
+  overflow: hidden;
 }
 
 .App {
