@@ -73,7 +73,19 @@ main {
 }
 
 @media screen and (max-width: 480px) {
+  .main {
+    padding: 20px;
+  }
+
+  .instructions {
+    text-align: center;
+  }
+
   .dice-container {
     grid-template: auto auto / repeat(2, 1fr);
+  }
+
+  .die-face {
+    font-size: 1rem;
   }
 }
